@@ -255,8 +255,6 @@ class Portfolio(object):
 
 
         drawdown, max_dd, dd_duration = create_drawdowns(pnl)
-        logging.info('Drawdown ====')
-        logging.info(drawdown)
         self.equity_curve['drawdown'] = drawdown
         
         stats = dict()

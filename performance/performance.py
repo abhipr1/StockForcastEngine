@@ -38,8 +38,6 @@ def create_drawdowns(pnl):
     hwm = [0]
     # Create the drawdown and duration series
     idx = pnl.index
-    logging.info("PNL")
-    logging.info(pnl)
     
     # original coding: index are dates, seems to take O(n). because the last
     # row is duplicated.
@@ -58,10 +56,4 @@ def create_drawdowns(pnl):
         duration[each_row] = (
             0 if drawdown[each_row] == 0 else duration[each_row - 1] + 1)
 
-    #return drawdown.max(), duration.max()
-    logging.info('dw')
-    logging.info(drawdown)
-    logging.info('dwm')
-    logging.info(drawdown.max())
-    
     return drawdown, drawdown.max(), duration.max()
